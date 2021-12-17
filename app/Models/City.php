@@ -3,22 +3,10 @@
 namespace App\Models;
 
 use App\Models\Helpers\GetTableName;
-use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-/**
- * Class User
- * @package App\Models
- *
- * @property int $id
- * @property string name
- * @property int $age
- * @property int $salary
- * @property User[]|Collection $users
- * @property User $user
- */
-class User extends Model {
+class City extends Model {
   use HasFactory, GetTableName;
 
   /**
@@ -26,16 +14,15 @@ class User extends Model {
    *
    * @var string
    */
-  protected $table = 'users';
+  protected $table = 'cities';
 
   /**
    * The attributes that are mass assignable.
    *
-   * @var string[]
+   * @var array
    */
   protected $fillable = [
-    'name',
-    'email',
+    'title',
   ];
 
   /**
@@ -44,16 +31,15 @@ class User extends Model {
    * @var array
    */
   protected $casts = [
-    'name' => 'string',
+    'title' => 'string',
   ];
 
   /**
-   * Get cities for user
+   * Get users for City
    *
    * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
    */
-  public function cities() {
-    return $this->belongsToMany(City::class)->withTimestamps();
+  public function users() {
+    return $this->belongsToMany(User::class)->withTimestamps();
   }
-
 }
