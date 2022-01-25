@@ -14,13 +14,8 @@
 </head>
 <body>
 <ul>
-  <?php $__currentLoopData = $users; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $cities): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-    <li><?php echo e($key); ?>:
-      <?php $__currentLoopData = $cities; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $city): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-        <?php echo e($city->city_title); ?><?php echo e($loop->last ? '' : ', '); ?>
-
-      <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-    </li>
+  <?php $__currentLoopData = $users; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $user): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+    <li><a href=""><?php echo e($user->name); ?></a></li>
   <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 </ul>
 </body>

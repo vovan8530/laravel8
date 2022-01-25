@@ -7,7 +7,18 @@
     ),
     'aliases' => 
     array (
-      'Debugbar' => 'Barryvdh\\Debugbar\\Facade',
+      'Debugbar' => 'Barryvdh\\Debugbar\\Facades\\Debugbar',
+    ),
+  ),
+  'escapework/laravel-asset-versioning' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'EscapeWork\\Assets\\AssetsServiceProvider',
+    ),
+    'aliases' => 
+    array (
+      'Asset' => 'EscapeWork\\Assets\\Facades\\Asset',
     ),
   ),
   'facade/ignition' => 
@@ -26,6 +37,13 @@
     'providers' => 
     array (
       0 => 'Fruitcake\\Cors\\CorsServiceProvider',
+    ),
+  ),
+  'kalnoy/nestedset' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Kalnoy\\Nestedset\\NestedSetServiceProvider',
     ),
   ),
   'laravel/sail' => 

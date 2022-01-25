@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Helpers\GetTableName;
+use App\Models\Mixins\UserMixin;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -13,13 +14,13 @@ use Illuminate\Database\Eloquent\Model;
  *
  * @property int $id
  * @property string name
- * @property int $age
- * @property int $salary
+ * @property string $email
+ * @property string $password
  * @property User[]|Collection $users
  * @property User $user
  */
 class User extends Model {
-  use HasFactory, GetTableName;
+  use HasFactory, GetTableName, UserMixin;
 
   /**
    * The table associated with the model.
@@ -29,6 +30,11 @@ class User extends Model {
   protected $table = 'users';
 
   /**
+   * @var bool
+   */
+  public $timestamps = true;
+
+  /**
    * The attributes that are mass assignable.
    *
    * @var string[]
@@ -36,6 +42,7 @@ class User extends Model {
   protected $fillable = [
     'name',
     'email',
+    'password'
   ];
 
   /**
