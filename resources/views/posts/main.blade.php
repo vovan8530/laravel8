@@ -20,11 +20,7 @@
   </h1>
 </header>
 <main>
-  @if(!isset($post))
-    @yield('error')
-  @else
-    @yield('content')
-  @endif
+  @yield('content')
 </main>
 </body>
 </html>

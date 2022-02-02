@@ -68,7 +68,7 @@ Route::get('/products', [ProductController::class, 'index']);
 Route::get('/subcategories', [SubCategoryController::class, 'index']);
 Route::get('/shop-categories', [ShopCategoryController::class, 'index']);
 
-Route::get('/posts/order/{dir?}', [PostController::class, 'index']);
+Route::get('/posts/order/{dir?}', [PostController::class, 'index'])->name('posts.index.order');
 Route::resources([
   'users' => UserController::class,
   'employeeUsers' => EmployeeUserController::class,

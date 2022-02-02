@@ -20,11 +20,7 @@
   </h1>
 </header>
 <main>
-  <?php if(!isset($post)): ?>
-    <?php echo $__env->yieldContent('error'); ?>
-  <?php else: ?>
-    <?php echo $__env->yieldContent('content'); ?>
-  <?php endif; ?>
+  <?php echo $__env->yieldContent('content'); ?>
 </main>
 </body>
 </html>

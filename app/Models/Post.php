@@ -21,6 +21,9 @@ use Illuminate\Support\Carbon;
  * @property Post $post
  * @property Post[] $posts
  *
+ * @method static create(array $array)
+ * @method static orderBy(string $string, string $dir)
+ * @method static findOrFail(int $post)
  *
  */
 class Post extends Model {

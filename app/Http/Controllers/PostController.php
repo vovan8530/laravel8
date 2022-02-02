@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
@@ -11,7 +12,7 @@ class PostController extends Controller {
   /**
    * @var \string[][]
    */
-  private array $posts = [];
+  private array $posts;
 
   public function __construct() {
     $this->posts = [
@@ -83,6 +84,35 @@ class PostController extends Controller {
    */
   public function create(): View {
     return view('posts.edit');
+  }
+
+  public function store(Request $request): RedirectResponse {
+    Post::create([
+      'title' => $request->title,
+      'description' => $request->description,
+      'text' => $request->text,
+      'date_publication' => $request->date_publication,
+    ]);
+    return redirect()->route('posts.index.order');
+  }
+
+
+  /**
+   * @param Post $post
+   * @return View
+   */
+  public function edit(Post $post): View {
+    return view('posts.edit', ['post' => $post]);
+  }
+
+  /**
+   * @param Request $request
+   * @param Post $post
+   * @return RedirectResponse
+   */
+  public function update(Request $request, Post $post): RedirectResponse {
+    $post->update($request->all());
+    return redirect()->route('posts.index.order');
   }
 
 }
