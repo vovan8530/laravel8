@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\EmployeeUser;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder {
@@ -18,6 +19,8 @@ class DatabaseSeeder extends Seeder {
       ProductSeeder::class,
       CitySeeder::class,
       ShopCategorySeeder::class,
+      EmployeeUserSeeder::class,
+      PostSeeder::class
     ]);
   }
 }
