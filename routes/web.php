@@ -39,8 +39,7 @@ Route::get('/employee/{employee}', [EmployeeController::class, 'show']);
 Route::get('/employees/', [EmployeeController::class, 'index']);
 Route::get('/city/{city?}', [CityController::class, 'show']);
 
-Route::get('/post/{post?}', [PostController::class, 'show'])->where(['post' => '[0-9]+']);
-Route::get('/posts', [PostController::class, 'index']);
+
 
 Route::get('/categories', [Product2Controller::class, 'showCategoryList']);
 Route::get('/product/{category}', [Product2Controller::class, 'showCategory'])->where(['category' => '[0-9]+']);
@@ -69,7 +68,7 @@ Route::get('/products', [ProductController::class, 'index']);
 Route::get('/subcategories', [SubCategoryController::class, 'index']);
 Route::get('/shop-categories', [ShopCategoryController::class, 'index']);
 
-
+Route::get('/posts/order/{dir?}', [PostController::class, 'index']);
 Route::resources([
   'users' => UserController::class,
   'employeeUsers' => EmployeeUserController::class,

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>
+    @if(!isset($post))
+      @yield('error-title')
+    @else
+      @yield('title')
+    @endif
+  </title>
+</head>
+<body>
+<header>
+  <h1>
+    @if(!isset($post))
+      @yield('error-title')
+    @else
+      @yield('title')
+    @endif
+  </h1>
+</header>
+<main>
+  @if(!isset($post))
+    @yield('error')
+  @else
+    @yield('content')
+  @endif
+</main>
+</body>
+</html>
